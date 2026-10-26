@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uber Eats Meal Plan | Angela Wang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEEFE9;
+    --paper-line:#D7D9CF;
+    --ink:#1C231F;
+    --ink-soft:#565F58;
+    --forest:#3A5F4F;
+    --forest-deep:#243B31;
+    --gold:#B4863A;
+    --card:#F8F8F3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.65;
+  }
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:52px 32px 90px;
+  }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--forest);
+    letter-spacing:0.03em;
+    margin:0 0 16px 0;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(28px, 5vw, 40px);
+    line-height:1.1;
+    margin:0 0 12px 0;
+  }
+  .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--forest);
+    margin:0 0 8px 0;
+  }
+  .team{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin:0 0 8px 0;
+  }
+  .achievement{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--forest-deep);
+    background:rgba(180,134,58,0.15);
+    border:1px solid var(--gold);
+    padding:6px 12px;
+    margin:14px 0 32px 0;
+  }
+  p.body-text{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 18px 0;
+    max-width:680px;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:28px 0 40px 0;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:6px 12px;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    color:var(--forest-deep);
+  }
+  h2.section-label{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:20px;
+    margin:48px 0 18px 0;
+    color:var(--ink);
+  }
+  .cover-frame{
+    border:1px solid var(--paper-line);
+    overflow:hidden;
+    margin-bottom:8px;
+  }
+  .cover-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .deck-gallery{
+    display:flex;
+    flex-direction:row;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:12px;
+  }
+  .deck-gallery .deck-page{flex:0 0 88%; scroll-snap-align:start;}
+  .deck-hint{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); margin:-8px 0 14px;}
+  .steps{margin:0 0 8px; padding-left:22px; max-width:680px; color:var(--ink-soft); font-size:16px;}
+  .steps li{margin:0 0 12px; padding-left:4px;}
+  .steps b{color:var(--ink); font-weight:600;}
+  .deck-page{
+    border:1px solid var(--paper-line);
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(28,35,31,0.08);
+  }
+  .deck-page img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .deck-link{
+    display:inline-block;
+    margin-top:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--forest-deep);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+  .deck-link:hover{color:var(--forest);}
+  .footer-note{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid var(--paper-line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  @media (max-width:640px){
+    .wrap{padding:36px 20px 60px;}
+  }
+
+  .back-nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(155,42,30,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+  .back-nav-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:14px 32px;
+  }
+  .back-nav a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:rgba(255,255,255,0.85);
+    text-decoration:none;
+    letter-spacing:0.02em;
+  }
+  .back-nav a:hover{color:#fff;}
+  @media (max-width:640px){
+    .back-nav-inner{padding:12px 20px;}
+  }
+</style>
+</head>
+<body>
+<nav class="back-nav"><div class="back-nav-inner"><a href="../index.html">&larr; Back to Portfolio</a></div></nav>
+
+<div class="wrap">
+  <p class="kicker">Launch projects &middot; Case Study</p>
+  <h1>Uber Eats Meal Plan</h1>
+  <p class="meta">Team Lead &middot; 5-person team &middot; 6 weeks &middot; Product SC Case Competition</p>
+  <p class="team">Team 2: Malachi Frye, Andrew Son, Kenneth Chee, Xiayu Li, Angela Wang</p>
+  <span class="achievement">🏆 1st Place out of 8 teams</span>
+
+  <p class="body-text"><strong style="color:var(--ink);">The goal:</strong> in six weeks, take a broad brief (Uber underserves suburban customers) and pitch one focused product to a panel of Uber product leaders.</p>
+
+  <h2 class="section-label">How I ran it</h2>
+  <ol class="steps">
+    <li><b>Scope.</b> Narrowed &ldquo;Uber&rdquo; to one product line, Uber Eats, and one problem we could own.</li>
+    <li><b>Research.</b> Ran market and competitor research and built user personas across ages and incomes. Key insight: limited food variety was driving low suburban engagement.</li>
+    <li><b>Prioritize.</b> Scored three concepts against success metrics and picked an Uber Eats Meal Plan, a subscription that solves for variety and price.</li>
+    <li><b>Deliver.</b> Shipped a 16-page product concept and Figma wireframe. I owned the launch plan, user personas, and success metrics.</li>
+  </ol>
+
+  <h2 class="section-label">What I&rsquo;d do next</h2>
+  <p class="body-text">Spend more time on direct user interviews, and build a full product roadmap to sequence the rollout.</p>
+
+  <div class="tags">
+    <span class="tag">Project Leadership</span>
+    <span class="tag">Scoping</span>
+    <span class="tag">Prioritization</span>
+    <span class="tag">Success Metrics</span>
+    <span class="tag">User Personas</span>
+    <span class="tag">Figma</span>
+  </div>
+
+  <h2 class="section-label">The Deck</h2>
+  <p class="deck-hint">Swipe or scroll sideways through all 19 slides &rarr;</p>
+  <div class="deck-gallery">
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-2290b583a4.jpg" alt="Uber Eats Meal Plan case study title slide, Team 2"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-84cca10c1a.jpg" alt="Roadmap slide outlining research, user segmentation, competitor analysis, problem statement, solutions, prioritization matrix, and final solution"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-56ca7507fe.jpg" alt="Research slide on market analysis of suburban migration and Uber's mobility and delivery revenue"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-9fe6b9de59.jpg" alt="Research slide on user interviews with customers and drivers"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-cd04aa72e9.jpg" alt="User segmentation slide covering customers, drivers and delivery people, and merchants"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-d91e8be76d.jpg" alt="User personas overview slide: Lexie, John, and James"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-e25feae0bc.jpg" alt="Market landscape statistics slide showing meal delivery monthly sales by platform"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-c281610b24.jpg" alt="Competitor landscape slide comparing Grubhub, DoorDash, and Uber Eats"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-d5ea644ea9.jpg" alt="Problem statement slide"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-35a2dbfedd.jpg" alt="Potential solutions slide: reservation model, heat maps pickup locator, and meal plan"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-38a46cfaa1.jpg" alt="Prioritization slide comparing reservation model, meal plan, and heat maps"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-51fb5b8c8d.jpg" alt="Final solution meal plan slide with pricing tiers and app mockup"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-9ca65543fa.jpg" alt="Success metrics slide listing primary, secondary, and monitoring metrics"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-07738ffc02.jpg" alt="Appendix: user persona 1, Lexie, 25, Lexington Massachusetts"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-fd72f5d961.jpg" alt="Appendix: user persona 2, John, 40, Lexington Massachusetts"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-8944a1b3ce.jpg" alt="Appendix: user persona 3, James, 35, Lexington Massachusetts"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-f831ac784f.jpg" alt="Appendix: detailed competitor landscape table for Grubhub and Postmates"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-00e1ce01e2.jpg" alt="Appendix: detailed competitor landscape table for DoorDash and Uber Eats"></div>
+    <div class="deck-page"><img loading="lazy" decoding="async" src="../images/uber-eats-meal-plan-0ebc86c19e.jpg" alt="Appendix: detailed final solution meal plan slide with app mockup"></div>
+  </div>
+
+  <a class="deck-link" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7ae49f24-8f02-4705-b47a-95536dd1671a/Case2Uber_.pdf" target="_blank" rel="noopener">Download the original deck (PDF) →</a>
+
+  <p class="footer-note">Angela Wang — Uber Eats Meal Plan case study</p>
+</div>
+</body>
+</html>

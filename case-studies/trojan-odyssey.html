@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trojan Odyssey | Angela Wang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEEFE9;
+    --paper-line:#D7D9CF;
+    --ink:#1C231F;
+    --ink-soft:#565F58;
+    --forest:#3A5F4F;
+    --forest-deep:#243B31;
+    --gold:#B4863A;
+    --card:#F8F8F3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.65;
+  }
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:52px 32px 90px;
+  }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--forest);
+    letter-spacing:0.03em;
+    margin:0 0 16px 0;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(30px, 5vw, 42px);
+    line-height:1.06;
+    margin:0 0 12px 0;
+  }
+  .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--forest);
+    margin:0 0 36px 0;
+  }
+  p.body-text{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 18px 0;
+    max-width:680px;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:28px 0 40px 0;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:6px 12px;
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    color:var(--forest-deep);
+  }
+  h2.section-label{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:20px;
+    margin:48px 0 8px 0;
+    color:var(--ink);
+  }
+  .section-note{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 18px 0;
+    max-width:600px;
+  }
+  .gallery{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .gallery-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .gallery-item{
+    border:1px solid var(--paper-line);
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(28,35,31,0.08);
+    background:#fff;
+  }
+  .gallery-item img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .gallery-item.wide img{
+    width:100%;
+  }
+  .caption{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin:6px 0 0 0;
+  }
+  .footer-note{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid var(--paper-line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  @media (max-width:640px){
+    .wrap{padding:36px 20px 60px;}
+    .gallery-row{grid-template-columns:1fr;}
+  }
+
+  .back-nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(155,42,30,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+  .back-nav-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:14px 32px;
+  }
+  .back-nav a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:rgba(255,255,255,0.85);
+    text-decoration:none;
+    letter-spacing:0.02em;
+  }
+  .back-nav a:hover{color:#fff;}
+  @media (max-width:640px){
+    .back-nav-inner{padding:12px 20px;}
+  }
+</style>
+</head>
+<body>
+<nav class="back-nav"><div class="back-nav-inner"><a href="../index.html">&larr; Back to Portfolio</a></div></nav>
+
+<div class="wrap">
+  <p class="kicker">Multimedia / Pitch Deck</p>
+  <h1>Trojan Odyssey</h1>
+  <p class="meta">Project Lead · Pixel-Art USC Campus Game</p>
+
+  <p class="body-text">As Project Lead, Angela guided a team of designers and developers through the full design process for Trojan Odyssey, a pixel-art game built around the USC campus — from early ideation and world-building through to final creation.</p>
+  <p class="body-text">She kept the team on track using agile project management tools like Asana, checking in on timelines and individual progress throughout development, and used Aseprite to help shape the game's pixel art direction across the campus map and in-game scenes.</p>
+  <p class="body-text">Beyond the game itself, she also led the creation of branding and marketing materials for Trojan Odyssey, including a physical sticker line.</p>
+
+  <div class="tags">
+    <span class="tag">Project Leadership</span>
+    <span class="tag">Aseprite</span>
+    <span class="tag">Asana / Agile Workflow</span>
+    <span class="tag">Branding &amp; Marketing</span>
+  </div>
+
+  <h2 class="section-label">Concept &amp; Planning</h2>
+  <p class="section-note">Early hand-drawn mapping of the USC campus into game zones — Frat Row, the Village, Marshall, Roski, Dornsife, and a "boss battle" against UCLA and then-president Carol Folt.</p>
+  <div class="gallery">
+    <div class="gallery-item wide">
+      <img loading="lazy" decoding="async" src="../images/trojan-odyssey-88b8efb85e.jpg" alt="Hand-drawn sketch mapping USC campus zones for the game, including Frat Row, the Village, Marshall, Roski, and Dornsife">
+    </div>
+  </div>
+
+  <p class="section-note" style="margin-top:24px;">Team brainstorming on programs, genre, mechanics, narrative direction, and art style — including a fetch-quest concept set in an enchanted version of USC, and a survey of pixel art references (Stardew Valley, Celeste, Shovel Knight, Enter the Gungeon, Zelda: Minish Cap) used to settle on the game's visual style.</p>
+  <div class="gallery">
+    <div class="gallery-item wide">
+      <img loading="lazy" decoding="async" src="../images/trojan-odyssey-bf0341604b.jpg" alt="Planning document covering programs, genres, mechanics, narrative concept, and pixel art style references for Trojan Odyssey">
+    </div>
+  </div>
+
+  <h2 class="section-label">World Design</h2>
+  <p class="section-note">The isometric campus map, explored in two color directions before settling on a final palette.</p>
+  <div class="gallery">
+    <div class="gallery-row">
+      <div class="gallery-item">
+        <img loading="lazy" decoding="async" src="../images/trojan-odyssey-163747eeda.jpg" alt="Isometric pixel art map of USC campus in a purple color palette">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" decoding="async" src="../images/trojan-odyssey-8abcd600bf.jpg" alt="Isometric pixel art map of USC campus in a brick red and cream color palette">
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-label">In-Game</h2>
+  <p class="section-note">Scenes from gameplay, including a USC Marshall-themed level and a Hollywood-and-study-abroad-themed level.</p>
+  <div class="gallery">
+    <div class="gallery-item wide">
+      <img loading="lazy" decoding="async" src="../images/trojan-odyssey-029e1bcc21.jpg" alt="Trojan Odyssey gameplay screens featuring a USC Marshall themed level with a photo collage and rooftop scene">
+    </div>
+    <div class="gallery-item wide">
+      <img loading="lazy" decoding="async" src="../images/trojan-odyssey-447bf967c2.jpg" alt="Trojan Odyssey gameplay screen featuring a Hollywood and study abroad themed level with a trivia board">
+    </div>
+  </div>
+
+  <h2 class="section-label">Gameplay &amp; Demo Day</h2>
+  <p class="section-note">Live gameplay footage, including a clip from the project's demo day presentation walking through the map iterations.</p>
+  <div class="gallery">
+    <div class="gallery-item wide">
+      <video controls playsinline preload="metadata" style="width:100%; display:block; background:#000;" src="../videos/trojan-odyssey-a014c9aed2.mp4">
+        <source src="../videos/trojan-odyssey-a014c9aed2.mp4" type="video/mp4">
+      </video>
+      <p class="caption"><a href="../videos/trojan-odyssey-a014c9aed2.mp4" target="_blank" rel="noopener" style="color:#3A5F4F;">Open/download this clip directly →</a></p>
+    </div>
+    <div class="gallery-item wide">
+      <video controls playsinline preload="metadata" style="width:100%; display:block; background:#000;" src="../videos/trojan-odyssey-b9a011c29a.mp4">
+        <source src="../videos/trojan-odyssey-b9a011c29a.mp4" type="video/mp4">
+      </video>
+      <p class="caption"><a href="../videos/trojan-odyssey-b9a011c29a.mp4" target="_blank" rel="noopener" style="color:#3A5F4F;">Open/download this clip directly →</a></p>
+    </div>
+  </div>
+
+  <h2 class="section-label">Merch &amp; Branding</h2>
+  <p class="section-note">Sticker packs designed as marketing and promotional material for the game's launch.</p>
+  <div class="gallery">
+    <div class="gallery-item wide">
+      <img loading="lazy" decoding="async" src="../images/trojan-odyssey-ce1ef9eb34.jpg" alt="Physical Trojan Odyssey sticker packs featuring pixel art character and campus mascot designs">
+    </div>
+  </div>
+
+  <p class="footer-note">Angela Wang — Multimedia / Pitch Deck</p>
+</div>
+</body>
+</html>
