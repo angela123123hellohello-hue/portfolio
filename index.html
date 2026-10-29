@@ -1122,6 +1122,24 @@
     .xp .about-bar{height:18px;}
   }
   @media (max-width:520px){ .xp-meta{grid-template-columns:1fr; gap:12px;} }
+
+  /* ---------- collapsible projects ---------- */
+  .proj-toggle{display:inline-flex; align-items:center; gap:10px; margin-top:28px; padding:10px 18px; background:transparent; color:var(--ink); border:1px solid var(--ink); border-radius:999px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.04em; text-transform:uppercase; cursor:pointer; transition:background .2s, color .2s;}
+  .proj-toggle:hover{background:var(--ink); color:#fff;}
+  .proj-toggle:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .proj-toggle-icon{position:relative; width:10px; height:10px;}
+  .proj-toggle-icon::before,.proj-toggle-icon::after{content:""; position:absolute; left:0; top:4px; width:10px; height:2px; background:currentColor; transition:transform .25s;}
+  .proj-toggle-icon::after{transform:rotate(90deg);}
+  [aria-expanded="true"] .proj-toggle-icon::after{transform:rotate(0deg);}
+  html:not(.collapse-ready) .proj-toggle{display:none;}
+  #multimedia .proj-toggle{margin:-12px 0 28px;}
+  #multimedia.is-collapsed .proj-toggle{margin-bottom:0;}
+  [data-collapsible].is-collapsed .xp-main > .about-rule,
+  [data-collapsible].is-collapsed .xp-cols,
+  [data-collapsible].is-collapsed .xp-stats,
+  [data-collapsible].is-collapsed .xp-media,
+  [data-collapsible].is-collapsed .project-grid-2x2{display:none;}
+  [data-collapsible].is-collapsed .xp-inner{grid-template-columns:1fr;}
   .case-meta{overflow-wrap:anywhere; min-width:0;}
   .case-head{flex-wrap:wrap; min-width:0;}
 </style>
@@ -1285,7 +1303,7 @@
     </div>
   </section>
 
-  <section id="uber-eats" class="xp case-study">
+  <section id="uber-eats" class="xp case-study" data-collapsible>
     <div class="xp-inner">
       <div class="xp-main">
         <p class="about-h xp-eyebrow">Launch projects &middot; Case Study 1</p>
@@ -1295,6 +1313,7 @@
           <div><p class="about-h">Format</p><span>Product SC Product Management Case Competition</span></div>
           <div><p class="about-h">Result</p><span>🏆 1st of 8 teams</span></div>
         </div>
+        <button class="proj-toggle" type="button" aria-expanded="true"><span class="proj-toggle-label">Hide details</span><span class="proj-toggle-icon" aria-hidden="true"></span></button>
         <div class="about-rule"></div>
         <div class="xp-cols">
           <div>
@@ -1325,7 +1344,7 @@
     </div>
   </section>
 
-  <section id="trojan-odyssey" class="xp case-study">
+  <section id="trojan-odyssey" class="xp case-study" data-collapsible>
     <div class="xp-inner">
       <div class="xp-main">
         <p class="about-h xp-eyebrow">Launch projects &middot; Case Study 2</p>
@@ -1335,6 +1354,7 @@
           <div><p class="about-h">Format</p><span>Pixel-Art Campus Game</span></div>
           <div><p class="about-h">Location</p><span>Los Angeles, CA</span></div>
         </div>
+        <button class="proj-toggle" type="button" aria-expanded="true"><span class="proj-toggle-label">Hide details</span><span class="proj-toggle-icon" aria-hidden="true"></span></button>
         <div class="about-rule"></div>
         <div class="xp-cols">
           <div>
@@ -1368,8 +1388,9 @@
 
 
 
-  <section id="multimedia">
+  <section id="multimedia" data-collapsible>
     <h2 class="section-title" style="color:var(--gold);">Other Projects</h2>
+    <button class="proj-toggle" type="button" aria-expanded="true"><span class="proj-toggle-label">Hide details</span><span class="proj-toggle-icon" aria-hidden="true"></span></button>
     <div class="project-grid-2x2">
       <a class="project-tile" href="case-studies/toastie.html">
         <div class="project-tile-photo">
@@ -1554,6 +1575,25 @@
     });
   },{threshold:0.2, rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(el){io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  var sections=document.querySelectorAll('[data-collapsible]');
+  if(!sections.length) return;
+  document.documentElement.classList.add('collapse-ready');
+  sections.forEach(function(sec){
+    var btn=sec.querySelector('.proj-toggle');
+    if(!btn) return;
+    var label=btn.querySelector('.proj-toggle-label');
+    function set(open){
+      sec.classList.toggle('is-collapsed', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      label.textContent = open ? 'Hide details' : 'Show details';
+    }
+    set(false);
+    btn.addEventListener('click', function(){ set(sec.classList.contains('is-collapsed')); });
+  });
 })();
 </script>
 </body>
